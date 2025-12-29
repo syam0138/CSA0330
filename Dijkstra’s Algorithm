@@ -1,0 +1,33 @@
+#include <stdio.h>
+#define INF 999
+int main()
+{
+    int n,a[10][10],d[10],v[10]={0},i,j,s,min,u;
+    printf("Enter n: ");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+        for(j=0;j<n;j++)
+            scanf("%d",&a[i][j]);
+
+    printf("Enter source: ");
+    scanf("%d",&s);
+
+    for(i=0;i<n;i++) d[i]=a[s][i];
+    v[s]=1;
+
+    for(i=1;i<n;i++){
+        min=INF;
+        for(j=0;j<n;j++)
+            if(!v[j] && d[j]<min){
+                min=d[j]; u=j;
+            }
+        v[u]=1;
+        for(j=0;j<n;j++)
+            if(!v[j] && d[u]+a[u][j]<d[j])
+                d[j]=d[u]+a[u][j];
+    }
+
+    for(i=0;i<n;i++)
+        printf("Dist to %d = %d\n",i,d[i]);
+    return 0;
+}
