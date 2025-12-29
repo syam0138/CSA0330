@@ -1,0 +1,22 @@
+#include <stdio.h>
+#define MAX 5
+int stack[MAX], top=-1;
+
+int main() 
+{
+    int ch, val;
+    printf("1.Push 2.Pop 3.Peek\n");
+    scanf("%d",&ch);
+
+    if(ch==1) {
+        scanf("%d",&val);
+        stack[++top]=val;
+    }
+    else if(ch==2) {
+        printf("Popped: %d",stack[top--]);
+    }
+    else if(ch==3) {
+        printf("Top: %d",stack[top]);
+    }
+    return 0;
+}
