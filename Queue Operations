@@ -1,0 +1,24 @@
+#include <stdio.h>
+#define MAX 5
+int q[MAX], front=-1, rear=-1;
+
+int main() 
+{
+    int ch, val;
+    printf("1.Enqueue 2.Dequeue 3.Display\n");
+    scanf("%d",&ch);
+
+    if(ch==1) {
+        scanf("%d",&val);
+        if(front==-1) front=0;
+        q[++rear]=val;
+    }
+    else if(ch==2) {
+        printf("Deleted: %d",q[front++]);
+    }
+    else {
+        for(int i=front;i<=rear;i++)
+            printf("%d ",q[i]);
+    }
+    return 0;
+}
