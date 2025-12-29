@@ -1,0 +1,20 @@
+#include <stdio.h>
+#define SIZE 10
+int h[SIZE];
+
+int main() 
+{
+    int key, i, pos;
+    for(i=0;i<SIZE;i++) h[i]=-1;
+
+    printf("Enter key: ");
+    scanf("%d",&key);
+
+    pos=key%SIZE;
+    while(h[pos]!=-1)
+        pos=(pos+1)%SIZE;
+
+    h[pos]=key;
+    printf("Stored at %d",pos);
+    return 0;
+}
